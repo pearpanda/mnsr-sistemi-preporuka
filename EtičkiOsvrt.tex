@@ -1,26 +1,12 @@
-\documentclass[a4paper]{article}
 
-\usepackage{color}
-\usepackage{url}
-\usepackage{pgf-pie}
-\usepackage[T2A]{fontenc} % enable Cyrillic fonts
-\usepackage[utf8]{inputenc} % make weird characters work
-\usepackage{graphicx}
-\usepackage[english,serbian]{babel}
-\usepackage[unicode]{hyperref}
-\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
-
-\usepackage{listings}
-\begin{document}
-
-\section{Etički osvrt na dizajn sistema preporuka}
-U ovom poglavlju posmatraćemo sisteme preporuka u kontekstu tehnologije ubeđivanja (eng. persuasive technology) i digitalnog gurkanja (eng. digital nudging). Obe metode definišu osobine sistema preporuka koje utiču na formiranje stavova, mišljenja i odluka korisnika \cite{Jesse_Jannach_2021}.
+\section{Dizajn sistema preporuka}
+U ovom poglavlju posmatraćemo sisteme preporuka u kontekstu tehnologije ubeđivanja (eng.~{\em persuasive technology}) i digitalnog gurkanja digital nudging. Obe metode definišu osobine sistema preporuka koje utiču na formiranje stavova, mišljenja i odluka korisnika \cite{Jesse_Jannach_2021}.
 
 \subsection{Sistemi preporuka i tehnologija ubeđivanja}
 Ubeđivanje je forma komunikacije u svrhu uticaja na rasuđivanje i ponašanje sagovornika \cite{Simons_Jones_2011}. Po definiciji, ono je različito od manipulacije, jer nema elemente obmane. Ubeđivanjem se, kroz proces usmerenog predlaganja, a ne prinude, postiže promena stavova sagovornika, i to u cilju njegovog i opšteg dobra. 
 
 \subsubsection{Tehnologija ubeđivanja}
-Ukoliko onaj koji ubeđuje umesto čoveka - informacioni sistem, radi se o tehnologiji ubeđivanja. Sistemi preporuka su namenjeni da preporuče, a ne ubede korisnika \cite{Alslaity_Tran_2019}. Ipak, ukoliko preporuka menja stavove i ponašanje korisnika, ona je ubedljiva \cite{Yoo_Gretzel_Zanker_2013}. Takođe, na prihvatanje preporuka, pored tačnih predikcija, utiče i način komuniciraje sa korisnicima \cite{Alslaity_Tran_2021}. Dakle, sistem treba prvo da odredi preporuku, ali i da je prikaže na ubedljiv način kako bi ona bila prihvaćena.
+Ukoliko onaj koji ubeđuje umesto čoveka - informacioni sistem, radi se o tehnologiji ubeđivanja. Sistemi preporuka su namenjeni da preporuče, a ne ubede korisnika \cite{Alslaity_Tran_2019}. Ipak, ukoliko preporuka menja stavove i ponašanja, ona je ubedljiva \cite{Yoo_Gretzel_Zanker_2013}. Način komuniciraje, pored tačnih predikcija, utiče na prihvatanje preporuka \cite{Alslaity_Tran_2021}. Dakle, sistem treba prvo da odredi preporuku, ali i da je korisniku prikaže na ubedljiv način kako bi ona bila prihvaćena.
 
 \subsubsection{Ubeđivanje u sistemima preporuka}
 Korisnici percepiraju sistem preporuka kao sagovornika, a ne kao mašinu \cite{Yoo_Gretzel_Zanker_2013}. Određeni socijalni obrasci iz dinamike ubeđivanja u međuljudskim odnosima mogu se primeniti na relaciju sistema preporuka i čoveka. Takođe, njihov uticaj je izraženiji ukoliko sistem preporuke komunicira sa korisnikom preko virtuealnog agenta.
@@ -36,14 +22,14 @@ Sistem preporuka formira spisak preporuka na osnovu preferenci korisnika, ali i 
 Izdvajamo dva relevantna termina iz literature - {\it etičke tehnologije ubeđivanja} \cite{Benner_2022} i {\it sistemi podrške u promeni stavova} \cite{Karppinen_Oinas-Kukkonen_2013}. Ove metode uvode dizajnerske principe koji su u skladu sa etičkim načelima. Naime, prihvatanje preporuke treba da bude dobro po korisnika ili društvo, a proces ubeđivanja maksimalno transparentan tako da je i efikasan. Dizajn treba da odgovara potrebama korisnika, ne remeti njegove ostale aktivnosti i obezbedi odgovarajući prostor izbora. Na primer, Google koristi oznaku {\it Sponsored} da označi rezultate pretrage koji su pri vrhu liste preporuka jer su preduzeća platila tu uslugu.
 
 \subsection{Sistemi preporuka i digitalno gurkanje }
-Gurkanje (eng. nudge) predstavlja mehanizme koji se, oslanjajući se na određene uvide iz psiholologije donošenja odluka, a pre svega na inertnost, averziju prema gubitku i heuristike \cite{Thaler_Sunstein_2008}, primenjuju na kontekst prikaza izbora, da bi se osoba navela na određenu opciju. Gurkanje su 2008. uveli Thaler i Sunstein kao grupu mehanizama koji imaju plemenite ciljeve \cite{Jesse_Jannach_2021}.
+Gurkanje (eng.~{\em nudge}) predstavlja mehanizme koji se, oslanjajući se na određene uvide iz psiholologije donošenja odluka, a pre svega na inertnost, averziju prema gubitku i heuristike \cite{Thaler_Sunstein_2008}, primenjuju na kontekst prikaza izbora, da bi se osoba navela na određenu opciju. Gurkanje su 2008. uveli Thaler i Sunstein kao grupu mehanizama koji imaju plemenite ciljeve \cite{Jesse_Jannach_2021}.
 
 \subsubsection{Digitalno gurkanje}
 Digitalno gurkanje definišemo kao specifičan dizajn korisničkog interfejsa nekog sistema, takav da navodi korisnika na određenu promenu ponašanja ili stavova \cite{Weinmann_Schneider_Brocke_2016}. Namera je da se, bez ugrožavanja slobode izbora, korisnik "gurka" u pravcu gde je njegov izbor u najboljem interesu društva, a dugoročno i u njegovom najboljem interesu \cite{Karlsen_Andersen_2019}. Andersen i Karslen \cite{Karlsen_Andersen_2019} uvode termin pametno gurkanje, gde sistem dodatno bira one teme koje su relevantne korisniku. 
 
 U kontekstu sistema preporuka, korisniku se neke opcije, poput hrane za naručivanje, mogu prikazati u određenom poretku tako da neke zdravije opcije budu pri vrhu liste preporuka, iako istorijski nisu bile u skladu sa korisnikovim preferencama \cite{Jesse_Jannach_2021}.
 
-Studija iz 2013. \cite{Probst_Shaffer_Chan_2013} posmatra uticaj osnovnih podešavanja korisničkoj dizajna elektronskog zdravstvenog sistema na količinu odabranih tretmana pri prijavljivanju. Rezultati pokazuju da ukoliko su svi tretmani bili preselektovani, a od korisnika se ocekivalo da izbaci one koje ne želi (eng. opt-out), naručeno je znatno više testova nego u slučaju dizajna gde svi tretmani nisu selektovani, a od korisnika se očekuje da odabere one koje želi (eng. opt-in).
+Studija iz 2013. \cite{Probst_Shaffer_Chan_2013} posmatra uticaj osnovnih podešavanja korisničkoj dizajna elektronskog zdravstvenog sistema na količinu odabranih tretmana pri prijavljivanju. Rezultati pokazuju da ukoliko su svi tretmani bili preselektovani, a od korisnika se ocekivalo da izbaci one koje ne želi (eng.~{\em opt-out}), naručeno je znatno više testova nego u slučaju dizajna gde svi tretmani nisu selektovani, a od korisnika se očekuje da odabere one koje želi (eng.~{\em opt-in}).
 
 \subsubsection{Etički osvrt}
 Manjak transparentnosti sistema o korišćenju digitalnog gurkanja i oslanjanje na nesvesno donošenje odluka korisnika \cite{Bruns_Kantorowicz_2018} su kritikovane karakteristika digitalnog gurkanja. U primeru odabira zdravstenih tretmana iznad, cilj bi trebalo da bude navođenje korisnika na odabir tretmane koji su mu potrebni. Ipak, cilj je, očigledno, maksimizacija profita ustanove. U tom slučaju, sistem se oslanja na heuristike i previd korisnika, a ne na njegov informisani izbor. U kontekstu sistema preporuka, neke opcije mogu potpuno biti eliminisane iz personalizovanih skupa opcija nekog korisnika, ukoliko sistem zaključi da ih korisnik ne bi odabrao. Taj scenario direktno narušava gorepomenut princip slobode izbora \cite{Jesse_Jannach_2021}.
@@ -70,70 +56,66 @@ Suplementi u prahu&Specifični zdravstveni ciljevi i problemi&f\\ \hline
 \end{tabular}
 \label{tab:vitablecene}
 \end{table}
-
-
  Jedno od pitanja u kvizu je da li korisnik oseća vizuealnu vrtoglavicu nakon dugog korišcenja ekrana. Dugo korišćenje ekrana je realnost modernog čoveka, a vizuelna vrtoglavica je česta posledica. Zbog toga, očekujemo da će većina korisnika odgovoriti pozitivno na to pitanje. Na kraju testa, sistem preporučuje vitamin Astaxanthin iz kategorije specijaliteta (cena AUD 19) kao rešenje za vizuelnu vrtoglavicu. 
 
 Ako odaberemo po jedan proizvod iz prve tri kategorije i Astaxanthin iz četvrte kategorije, prosečna cena paketa je AUD 74.6. Na slici \ref{fig:astaxanthin} prikazan je udeo cene svakog suplementa u takvom paketu. Izostavljamo kategoriju suplemenata u prahu, jer su oni namenjeni za konkretne zdravstvene probleme i specifičnije ciljeve. 
 
-\begin{figure}[h!]
-\centering
-\begin{tikzpicture} [scale=0.8, every node/.style={scale=0.8}]
-\pie[
-    color = {
-        yellow!90, 
-        green!40, 
-        blue!20, 
-        red!40,
-        orange!60},
-    text = legend,
-    rotate = 90
-]
-{
-14.15/Vitamini,
-    16.74/Minerali,
-    21.46/Probiotici,
-    22.13/Biljke,
-    25.5/Astaxanthin}
- 
-\end{tikzpicture}
-\caption{Prosečni udeo cene suplementa (u procentima) u paketu koji sadrži po jedan suplement iz svake kategorije i Astaxanthin}
-\label{fig:astaxanthin}
-\end{figure}
-
-\newpage
-
 Slično, ako odaberemo po jedan proizvod iz prve tri kategorije i proizvod koji nije Astaxanthin iz četvrte kategorije, prosečna cena paketa je AUD 71.7. Na Slici \ref{fig:wout_astaxanthin} prikazan je udeo suplementa u takvom paketu.
-
-\begin{figure}[h!]
-\centering
-\begin{tikzpicture} [scale=0.8, every node/.style={scale=0.8}]
-\pie[
-    color = {
-        yellow!90, 
-        green!40, 
-        blue!20, 
-        red!40,
-        orange!60},
-    text = legend,
-    rotate = 90
-]
-{
-14.80/Vitamini,
-    17.51/Minerali,
-    22.07/Specijaliteti,
-    22.45/Probiotici,
-    23.16/Biljke}
- 
-\end{tikzpicture}
-\caption{Prosečni udeo cene suplementa (u procentima) u paketu koji sadrži po jedan suplement iz svake kategorije i ne sadrži Astaxanthin}
-\label{fig:wout_astaxanthin}
-\end{figure}
 
 Prosečna cena paketa je veća ako je Astaxanthin izabran. Takođe Astaxanthin je u proseku najskuplji suplement u posmatranom paketu. Pretpostavimo da svi ljudi koriste računar ili mobilni telefon i da će oni odgovoriti pozitivno na postavljeno pitanje. Onda, bi svi ljudi imali Astaxanthin u spisku osnovnih preporučenih proizvoda, u opt-in stilu. Takav vid digitalnog gurkanja se ne preporučuje etičkim dizajnerskim principima.
 
-\addcontentsline{toc}{section}{Literatura}
-\bibliographystyle{plain}
-\bibliography{EtičkiOsvrt}
-
-\end{document}
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \begin{tikzpicture} [scale=0.6, every node/.style={scale=0.6}]
+        \pie[
+            color = {
+                yellow!90, 
+                green!40, 
+                blue!20, 
+                red!40,
+                orange!60},
+            rotate = 90,
+            ]
+        {
+        14.15/,
+        16.74/,
+        21.46/,
+        22.13/,
+        25.5/
+        }
+ 
+    \end{tikzpicture}
+    \caption{Paket sadrži astaxanthin}
+    \label{fig:astaxanthin}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+     \begin{tikzpicture} [scale=0.6, every node/.style={scale=0.6}]
+    \pie[
+        color = {
+            yellow!90, 
+            green!40, 
+            orange!60,
+            blue!20, 
+            red!40
+            },
+        text = legend,
+        rotate = 90
+        ]
+        {
+            14.80/Vitamin,
+            17.51/Mineral,
+            22.07/Specialty,
+            22.45/Probiotic,
+            23.16/Herb
+        }
+ 
+    \end{tikzpicture}
+    \caption{Paket ne sadrži astaxanthin}
+    \label{fig:wout_astaxanthin}
+\end{subfigure}
+\caption{Prosečni udeo cene suplementa u paketu koji sadrži po jedan suplement iz svake kategorije}
+\label{fig:suplementi_udeo}
+\end{figure}
