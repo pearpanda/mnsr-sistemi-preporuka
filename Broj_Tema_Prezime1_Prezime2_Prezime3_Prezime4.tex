@@ -1,0 +1,402 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[english,serbian]{babel}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{listings}
+
+\newtheorem{primer}{Primer}[section]
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1000,                % start line enumeration with line 1000
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin{document}
+
+\title{TODO: Naslov\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
+
+\author{Anđela Bašić, Jelena Bondžić, Ognjen Popović, Petar Nikić\\ \small{kontakt email prvog, mi231028@alas.matf.bg.ac.rs, bapop413@gmail.com, petarnikic2000@gmail.com}}
+
+\date{19.~novembar 2023.}
+
+\maketitle
+
+\abstract{
+U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da koristite!) kao i par tehničkih pomoćnih uputstava. Pročitajte tekst pažljivo jer on sadrži i važne informacije vezane za zahteve obima i karakteristika seminarskog rada.}
+
+\tableofcontents
+
+\newpage
+
+\section{Uvod}
+\label{sec:uvod}
+
+Kada budete predavali seminarski rad, imenujete datoteke tako da sadrže redni broj teme, temu seminarskog rada, kao i prezimena članova grupe. Precizna uputstva na temu imenovnja će biti data na formi za predaju seminarskog rada. Predaja seminarskih radova biće isključivo preko veb forme, a NE slanjem mejla. Link na formu će biti dat u okviru obaveštenja na strani kursa. Vodite računa da prilikom predavanja seminarskog rada predate samo one fajlove koji su neophodni za ponovno generisanje pdf datoteke. To znači da pomoćne fajlove, kao što su .log, .out, .blg, .toc, .aux i slično, \textbf{ne treba predavati}.
+
+\section{Sistemi preporuka}
+\label{sec:sistemi_preporuka}
+
+\subsection{Motivacija}
+\label{subsec:motivacija}
+
+U današnje vreme, zbog ubrzanog razvoja interneta i veba, kompanije neretko imaju potrebu da barataju velikim količinama podataka. Na primer, veb prodavnica ``Amazon'' nudi kupcima čak 353 miliona predmeta \cite{noauthor_57_2022}, a ``Google'' pretraživač indeksira i pretražuje stotine milijardi veb strana \cite{noauthor_organizing_nodate}. Obe firme treba da na neki smislen i efikasan način svojim korisnicima daju pregled sadržaja sa kojim rade, a posebno sadržaja koji su interesantni svakom korisniku pojedinačno. Oni rade intenzivno na razvijanju novih, boljih tehnika pretrage i preporučivanja sadržaja kako bi poboljšali iskustvo korisnika i smanjili troškove.
+
+Pravljenje dobrih preporuka je direktno vezano i u nekoliko biznis modela. Kompanije kao što su ``Google'' i ``Meta'', koje deo prihoda ostvaruju na osnovu reklama, pružaju mnogo funkcionalnosti i izuzetnu uslugu da bi korisnici duže koristili njihove servise i samim tim bili izloženi većem broju reklama. Dodatno, praćenjem korišćenja svojih servisa i analizom podataka o korišćenju, ove kompanije dobijaju uvid u interesovanja korisnika, što koriste ne samo za prilagođavanje sadržaja korisniku, već i reklama. Na sličan način, prodavnice kao što je ``Amazon'' pomažu kupcima da lakše pronađu proizvode koji ih interesuju, čime smanjuju napor uložen u kupovinu i poboljšavaju uslugu, ali takođe predlažu dodatne proizvode, što povećava njihovu zaradu.
+
+\subsection{Sistemi preporuka i nauka}
+\label{subsec:nauka}
+
+Razvoj veba i povećanje količine podataka za obradu direktno je motivisalo razvoj više povezanih naučnih disciplina koje obrađuju slične probleme, pri čemu su dve koje se izdvajaju \textbf{pronalaženje informacija} (eng.~{\em information retrieval}) i \textbf{sistemi preporuka} (eng.~{\em recommender systems, recommendation systems}). U oba slučaja, cilj je pomoći korisniku da dobije željene rezultate.
+
+\textbf{Sistemi preporuka} mogu se opisati kao kompleksni softverski sistemi čija je glavna uloga da svojim \textbf{korisnicima} (eng.~{\em users}) daju personalizovan pregled \textbf{predmeta} (eng.~{\em items}) registrovanih u sistemu za koje sistem proceni da im mogu biti interesantni.
+
+Tehnike pronalaženja informacija su izrazito prisutne u implementaciji raznih vrsta pretraživača, pri čemu korisnik parametrima pretrage opisuje željene rezultate. U slučaju modernih sistema preporuka, međutim, nije neophodno da korisnik pravi upite, već sistem može da pretpostavi šta je relevantno korisniku, i pruži mu personalizovan rezultat. Ipak, popularni pretraživači integrišu tehnike sistema preporuka za pružanje personalizovanih pretraga, gde na rezultate upita korisnika utiču ne samo podaci navedeni u upitu, već i kontekst koji čine interesovanja ili lokacija korisnika \cite{aggarwal_recommender_2016}.
+
+\subsection{Stari sistemi preporuka}
+\label{subsec:stari_sistemi_preporuka}
+
+U osnovi starih sistema preporuka stoji sama ideja \textbf{preporuke} koju smo dobili od prijatelja, pročitali u časopisu ili na internetu, koja nam je potrebna da donesemo odluku kada nemamo dovoljno znanja o svim opcijama. Stari sistemi preporuka su zamišljeni kao unapređenje prirodnog procesa gde bi korisnici delili svoje utiske, koje bi sistem sakupljao, agregirao i učinio dostupnim ostalim korisnicima \cite{resnick_recommender_1997}. Za prvi sistem preporuka smatra se ``Tapestry'' \cite{goldberg_using_1992}, napravljen 1992. godine. On je predstavljao proširenje koncepta filtriranja elektronske pošte, sa ciljem identifikovanja interesantnih i relevantnih poruka u skupu svih poruka u sandučetu.
+
+\subsubsection{Sistem ``Tapestry''}
+\label{subsubsec:tapestry}
+
+Većina mejl sistema podržava definisanje filtera nad sadržajem mejlova, poput toga kome je sve upućen i da li su neke ključne reči pomenute u naslovu ili sadržaju. Razvijaoci sistema ``Tapestry`` uočili su da filteri nad sadržajem nisu jedini pristup problemu traženja interesantnih poruka. Analizirali su aktivnosti rukovodioca mejl grupa, i zaključili su da rukovodioci zapravo vrše ulogu filtriranja sadržaja poruka po svojim interesovanjima. Proširili su sistem tako da korisnici mogu da reaguju na poruke, čime daju svoju preporuku, i dozvolili su korisnicima da definišu posebne filtere na osnovu opšte popularnosti ili reakcija specifičnih ljudi. Reakcije se čuvaju u sistemu i objavljuju ostalim korisnicima, tako da sistem ``Tapestry'' zaista predstavlja jedan stari sistem preporuka.
+
+\subsection{Koncepti sistema preporuka}
+\label{subsec:koncepti_sistema_preporuka}
+
+\subsubsection{Upotrebljivost}
+\label{subsubsec:upotrebljivost}
+
+U poređenju sa početnim sistemima, noviji sistemi pomeraju fokus sa koncepta preporuka korisnika na sam preporučen predmet. Koncept preporuke se apstrahuje u meru koja se zove upotrebljivost (eng.~{\em utility}) ili ocena (eng.~{\em rating}) \cite{burke_recommender_2011}. Unapređivanjem korisničkih interfejsa, korisnicima postaje dosta lakše da ocenjuju sadržaj, obično u veoma malom broju koraka \cite{aggarwal_recommender_2016}. Uprkos tome, sistemi preporuka takođe počinju da prate, sakupljaju i analiziraju podatke o interakcijama korisnika sa različitim predmetima. Obrađeni podaci i eksplicitne ocene korisnika sistem koristi u formiranju ocene upotrebljivosti predmeta za tog korisnika.
+
+\subsubsection{Pristupi u sistemima preporuka}
+\label{subsubsec:pristupi_sistema_preporuka}
+
+U osnovi uspešnosti tehnika koje se koriste u sistemima preporuka leži opažanje da postoje obrasci u ocenama predmetima, kako između različitih predmeta, tako i između različitih ljudi \cite{aggarwal_recommender_2016}. U primeru mejl sistema ``Tapestry'' vidimo početke dve glavna pristupa koja koriste ove obrasce i koja se koriste danas u sistemima preporuka: \textbf{filtriranje po sadržaju} (eng.~{\em content-based filtering}) i \textbf{zajedničko filtriranje} (eng.~{\em collaborative filtering}).
+
+Tehnike zasnovane na sadržaju obuhvataju određivanje i analiziranje raznih karakteristika sadržaja predmeta koje je neki korisnik prethodno razmatrao i kako te karakteristike utiču na ocenu korisnika. Dobijeno znanje se onda koristi u preporuci novih predmeta. Na primer, ukoliko neko često sluša određeni žanr muzike, veća je verovatnoća da će mu se svideti neka nova pesma upravo iz tog žanra.
+
+Tehnike zajedničkog filtriranja koriste informacije o aktivnosti više korisnika u određivanju preporuka. Jednostavni pristupi zajedničkog filtriranja obično su zasnovani na susedstvima, odnosno traženju sličnosti u ocenama između više korisnika ili više predmeta. Ukoliko dve osobe, na primer,  imaju slične utiske za nekoliko predmeta, pretpostavlja se da će imati slične utiske i za neki novi predmet. Alternativno, mogu se koristiti razne tehnike istraživanja podataka ili mašinskog učenja u definisanju modela na osnovu koga će se vršiti preporuke \cite{aggarwal_recommender_2016}. U ovom slučaju, model se može razvijati tako da razmatra i određene parametre koji bi kontrolisali koje preporuke model generiše.
+
+\subsubsection{Uspešnost sistema preporuka}
+\label{subsubsec:uspesnost_sistema_preporuka}
+
+Postoje mnogi aspekti sistema preporuka koji čine sistem uspešnim. Dobar sistem preporuka neće nužno razmatrati samo procenjenu ocenu predmeta za korisnika pri formiranju preporuka. Na primer, korisnik koji je istraživao i kupio mobilni telefon ne mora biti ljubitelj mobilnih telefona, već je bio u potrazi za novim telefonom. Nakon kupovine, preporučivanje telefona tom korisniku je verovatno suvišno. U drugim kontekstima, na primer u muzici, preporučivanje istog žanra, ili čak iste pesme više puta može biti poželjno.
+
+\subsection{Rizici sistema preporuka}
+\label{subsec:rizici_sistema_preporuka}
+
+\subsubsection{Reprezentativnost ocena}
+\label{subsubsec:reprezentativnost_ocena}
+
+Računanje upotrebljivosti na osnovu aktivnosti korisnika otvara put ka razvijanju boljih sistema preporuka. Iako sada korisnici imaju mogućnost da veoma jednostavno daju neki vid ocene za predmete, analiziranje isključivo tih ocena nije uvek reprezentativno. Jedan uzrok je pristrasnost uzorka, jer pravi skup korisnika i skup ljudi koji ostavljaju ocenu ne moraju da se poklapaju \cite{panzeri_sampling_2008}, bilo zato što korisnici ne žele da daju ocene, ili zbog lažnih ocena. Sakupljanjem podataka za sve korisnike svi učestvuju u formiranju procene upotrebljivosti, što dovodi do boljih preporuka i rezultata pretrage.
+
+\subsubsection{Opasnosti po privatnost}
+\label{subsubsec:opasnosti_po_privatnost}
+
+Međutim, prikupljanje podataka prirodno ističe rizike po privatnost korisnika. Radi boljeg efekta reklama, postaje bitnije formirati profile korisnika. Profili mogu sadržati, na primer, intersovanja, starost, pol, politička opredeljenja, mesto stanovanja, bogatstvo (eng.~{\em net worth}). Istraživanja pokazuju kako praćenje aktivnosti nije vezano samo za pojedinačne sajtove, već preko reklama i usluga analize saobraćaja povezuje veliki broj naizgled nezavisnih sajtova \cite{chaabane_big_2012}, pri čemu način upotrebe prikupljenih podataka često nije jasno definisan.
+
+\subsubsection{Sukobi interesa}
+\label{subsubsec:sukobi_interesa}
+
+Dodatno, uvek postoji sukob interesa između različitih strana u definisanju koliko je koja preporuka korisna. U slučaju veb prodavnica konflikt je očigledan: prodavcu se možda više isplati da preporuči predmet gde je zarada prodavca veća, umesto da preporuči predmet koji je najkorisniji kupcu \cite{burke_recommender_2011}.
+
+U slučaju reklama, proizvodi koji se preporučuju mogu biti nekvalitetni ili tvrdnje prikazane u reklami lažne. Neke reklame, iako profitabilne za kompanije, mogu biti veoma štetne za posebne korisnike. Na primer, reklame za kockarnice mogu katastrofalno uticati na zavisnike od kockanja.
+
+\subsection{Upotreba sistema preporuka}
+\label{subsec:upotreba_sistema_preporuka}
+
+U današnje vreme, sistemi preporuka su opšteprisutni. ``Netflix'' ih koristi za preporuke filmova i serija, ``Amazon'' da bi predložio predmete koje možete kupiti, ``Facebook'', ``Twitter'' i ``LinkedIn'' da vam predlože interesantne objave sa kojima možda nemate direktnu vezu ili ljude sa kojima možete da se povežete, ``Google'' prilagođava preporuke za pretragu i same rezultate pretrage u zavisnosti od korisnika, a ``YouTube'', ``Instagram'' i ``TikTok'' prikazuju veliki broj slika i video sadržaja, pri čemu su neki organizovani u neprekidne personalizovane nizove koje generiše sistem.
+
+\section{Etički osvrt na dizajn sistema preporuka}
+U ovom poglavlju posmatraćemo sisteme preporuka u kontekstu tehnologije ubeđivanja (eng. persuasive technology) i digitalnog gurkanja (eng. digital nudging). Obe metode definišu osobine sistema preporuka koje utiču na formiranje stavova, mišljenja i odluka korisnika \cite{Jesse_Jannach_2021}.
+
+\subsection{Sistemi preporuka i tehnologija ubeđivanja}
+Ubeđivanje je forma komunikacije u svrhu uticaja na rasuđivanje i ponašanje sagovornika \cite{Simons_Jones_2011}. Po definiciji, ono je različito od manipulacije, jer nema elemente obmane. Ubeđivanjem se, kroz proces usmerenog predlaganja, a ne prinude, postiže promena stavova sagovornika, i to u cilju njegovog i opšteg dobra. 
+
+\subsubsection{Tehnologija ubeđivanja}
+Ukoliko onaj koji ubeđuje umesto čoveka - informacioni sistem, radi se o tehnologiji ubeđivanja. Sistemi preporuka su namenjeni da preporuče, a ne ubede korisnika \cite{Alslaity_Tran_2019}. Ipak, ukoliko preporuka menja stavove i ponašanje korisnika, ona je ubedljiva \cite{Yoo_Gretzel_Zanker_2013}. Takođe, na prihvatanje preporuka, pored tačnih predikcija, utiče i način komuniciraje sa korisnicima \cite{Alslaity_Tran_2021}. Dakle, sistem treba prvo da odredi preporuku, ali i da je prikaže na ubedljiv način kako bi ona bila prihvaćena.
+
+\subsubsection{Ubeđivanje u sistemima preporuka}
+Korisnici percepiraju sistem preporuka kao sagovornika, a ne kao mašinu \cite{Yoo_Gretzel_Zanker_2013}. Određeni socijalni obrasci iz dinamike ubeđivanja u međuljudskim odnosima mogu se primeniti na relaciju sistema preporuka i čoveka. Takođe, njihov uticaj je izraženiji ukoliko sistem preporuke komunicira sa korisnikom preko virtuealnog agenta.
+
+Korisnici mogu da posmatraju kompjuter u kontekstu pola i etničke pripadnosti, i da shodno tome formiraju predrasude \cite{Nass_Moon_Green_1997}. Naime, ekperiment iz 1997. testira mišljenja korisnika o sistemu koji prikazuje informacije muškim i ženskim glasom. Sistem "muškog pola" je ocenjen kao stručniji od sistema "ženskog pola" u oblasti tehnologije. Međutim, poredak je obrnut u u oblasti ljubavi i odnosa. Takođe, sistem "muškog pola" je viđen kao saradljiviji i informativniji.
+
+Studija iz 2006. \cite{Holzwarth_Janiszewski_Neumann_2006} posmatra uticaj virtuealnog agenta na onlajn kupovinu. Dodavanje virtuealnog agenta korisničkom interfejsu poboljšalo je potrošački stav kupaca i pozitivno je uticalo na odnos prema proizvodima i prodavcu. Dodatno se proverava uticaj fizičkog izgleda i stručnosti agenta na ponašanje kupaca različitih uključenosti i zainteresovanosti za kupovinu. Rezultati pokazuju da, slično međuljudskoj interakciji, agenti boljeg fizičkog izgleda imaju bolje ubeđivačke sposobnosti nad korisnicima koji nisu uključeni u kupovinu na visokom nivou. Međutim, u slučaju visokouključenih korisnika, stručni agenti imaju bolje ubeđivačke sposobnosti.
+
+
+\subsubsection{Etički sistemi ubeđivanja}
+Sistem preporuka formira spisak preporuka na osnovu preferenci korisnika, ali i na osnovu motiva proizvođača \cite{Yoo_Gretzel_Zanker_2013}. Ako su preporuke takođe generisane na osnovu finansijskih motiva proizvođača, značajno je odrediti razliku između manipulacije i ubeđivanja. 
+
+Izdvajamo dva relevantna termina iz literature - {\it etičke tehnologije ubeđivanja} \cite{Benner_2022} i {\it sistemi podrške u promeni stavova} \cite{Karppinen_Oinas-Kukkonen_2013}. Ove metode uvode dizajnerske principe koji su u skladu sa etičkim načelima. Naime, prihvatanje preporuke treba da bude dobro po korisnika ili društvo, a proces ubeđivanja maksimalno transparentan tako da je i efikasan. Dizajn treba da odgovara potrebama korisnika, ne remeti njegove ostale aktivnosti i obezbedi odgovarajući prostor izbora. Na primer, Google koristi oznaku {\it Sponsored} da označi rezultate pretrage koji su pri vrhu liste preporuka jer su preduzeća platila tu uslugu.
+
+\subsection{Sistemi preporuka i digitalno gurkanje }
+Gurkanje (eng. nudge) predstavlja mehanizme koji se, oslanjajući se na određene uvide iz psiholologije donošenja odluka, a pre svega na inertnost, averziju prema gubitku i heuristike \cite{Thaler_Sunstein_2008}, primenjuju na kontekst prikaza izbora, da bi se osoba navela na određenu opciju. Gurkanje su 2008. uveli Thaler i Sunstein kao grupu mehanizama koji imaju plemenite ciljeve \cite{Jesse_Jannach_2021}.
+
+\subsubsection{Digitalno gurkanje}
+Digitalno gurkanje definišemo kao specifičan dizajn korisničkog interfejsa nekog sistema, takav da navodi korisnika na određenu promenu ponašanja ili stavova \cite{Weinmann_Schneider_Brocke_2016}. Namera je da se, bez ugrožavanja slobode izbora, korisnik "gurka" u pravcu gde je njegov izbor u najboljem interesu društva, a dugoročno i u njegovom najboljem interesu \cite{Karlsen_Andersen_2019}. Andersen i Karslen \cite{Karlsen_Andersen_2019} uvode termin pametno gurkanje, gde sistem dodatno bira one teme koje su relevantne korisniku. 
+
+U kontekstu sistema preporuka, korisniku se neke opcije, poput hrane za naručivanje, mogu prikazati u određenom poretku tako da neke zdravije opcije budu pri vrhu liste preporuka, iako istorijski nisu bile u skladu sa korisnikovim preferencama \cite{Jesse_Jannach_2021}.
+
+Studija iz 2013. \cite{Probst_Shaffer_Chan_2013} posmatra uticaj osnovnih podešavanja korisničkoj dizajna elektronskog zdravstvenog sistema na količinu odabranih tretmana pri prijavljivanju. Rezultati pokazuju da ukoliko su svi tretmani bili preselektovani, a od korisnika se ocekivalo da izbaci one koje ne želi (eng. opt-out), naručeno je znatno više testova nego u slučaju dizajna gde svi tretmani nisu selektovani, a od korisnika se očekuje da odabere one koje želi (eng. opt-in).
+
+\subsubsection{Etički osvrt}
+Manjak transparentnosti sistema o korišćenju digitalnog gurkanja i oslanjanje na nesvesno donošenje odluka korisnika \cite{Bruns_Kantorowicz_2018} su kritikovane karakteristika digitalnog gurkanja. U primeru odabira zdravstenih tretmana iznad, cilj bi trebalo da bude navođenje korisnika na odabir tretmane koji su mu potrebni. Ipak, cilj je, očigledno, maksimizacija profita ustanove. U tom slučaju, sistem se oslanja na heuristike i previd korisnika, a ne na njegov informisani izbor. U kontekstu sistema preporuka, neke opcije mogu potpuno biti eliminisane iz personalizovanih skupa opcija nekog korisnika, ukoliko sistem zaključi da ih korisnik ne bi odabrao. Taj scenario direktno narušava gorepomenut princip slobode izbora \cite{Jesse_Jannach_2021}.
+
+\subsubsection{Transparentno digitalno gurkanje}
+Postoji potreba za pronalaženjem transparentnije, a jednako efikasne, implementacije digitalnog gurkanja. Pored etičkih korena, pokazano je da odsustvo izbora smanjuje lično zadovoljstvo korisnika, kao i da nejasno podmetanje izbora može da izazove kontraefekat \cite{Bruns_Kantorowicz_2018}. U slučaju podrazumevanih podešavanja, izučava se uticaj otkrivanja njihovog generalnog psihološkog delovanja, kao i uticaj informisanja korisnika o cilju njihove primene. Bruns et. al. \cite{Bruns_Kantorowicz_2018} su sproveli istraživanje na primeru donacija ustanovama koje se bave ublažavanjem posledica klimatskih promena.
+Postoje inicjalne pretpostavke da transparentnost o nesvesnom delovanju mehanizama može izazvati otpor u većoj meri u odnosu na transparentnost o cilju njihove primene. Rezultati pokazuju da efikasnost u slučaju ma koje, kao i kombinovane, transparentnosti nije umanjena, te savetuju da bi ih trebalo implementirati u sistemima koji koriste digitalno gurkanje.
+
+\subsection{Primer Vitable}
+Vitable je onlajn kompanija koja se bavi prodajom personalizovanih suplemenata. Pri prijavljivanju, korisnik prvo popunjava kviz o svom zdravstevnom stanju. Na osnovu rezultata sistem preporučuje osnovni skup suplemenata, koji korisnik može da proširi po potrebi. Dodatne informacije o Vitable pogledati na adresi \url{https://www.vitable.com.au}.
+Grupe suplemenata, objašnjenje i prosečna cena suplementa po grupi dati su u tabeli \ref{tab:vitablecene}. Podaci o cenama su dostupni na adresi \url{https://www.vitable.com.au/products}.
+
+\begin{table}[h!]
+\small
+\caption{Vitable, prosečne cene suplemenata po kategorijama}
+\begin{tabular}{|l|l|l|} \hline
+Kategorija& Opis & Prosečna cena\\ \hline
+Vitamini &Jedinjenja potrebna telu u malim količinama&c\\ 
+Minerali&Elementi esencijalni za funkcionisanje&f\\ 
+Biljke&Terapeutska delovanja, deo tradicionalne medicine&f\\ 
+Probiotici&Pravilno funkcionisanje digestivnog sistema&f\\ 
+Specijaliteti&Dodatno poboljšanje zdravlja&f\\ 
+Suplementi u prahu&Specifični zdravstveni ciljevi i problemi&f\\ \hline
+\end{tabular}
+\label{tab:vitablecene}
+\end{table}
+
+
+ Jedno od pitanja u kvizu je da li korisnik oseća vizuealnu vrtoglavicu nakon dugog korišcenja ekrana. Dugo korišćenje ekrana je realnost modernog čoveka, a vizuelna vrtoglavica je česta posledica. Zbog toga, očekujemo da će većina korisnika odgovoriti pozitivno na to pitanje. Na kraju testa, sistem preporučuje vitamin Astaxanthin iz kategorije specijaliteta (cena AUD 19) kao rešenje za vizuelnu vrtoglavicu. 
+
+Ako odaberemo po jedan proizvod iz prve tri kategorije i Astaxanthin iz četvrte kategorije, prosečna cena paketa je AUD 74.6. Na slici \ref{fig:astaxanthin} prikazan je udeo cene svakog suplementa u takvom paketu. Izostavljamo kategoriju suplemenata u prahu, jer su oni namenjeni za konkretne zdravstvene probleme i specifičnije ciljeve. 
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture} [scale=0.8, every node/.style={scale=0.8}]
+\pie[
+    color = {
+        yellow!90, 
+        green!40, 
+        blue!20, 
+        red!40,
+        orange!60},
+    text = legend,
+    rotate = 90
+]
+{
+14.15/Vitamini,
+    16.74/Minerali,
+    21.46/Probiotici,
+    22.13/Biljke,
+    25.5/Astaxanthin}
+ 
+\end{tikzpicture}
+\caption{Prosečni udeo cene suplementa (u procentima) u paketu koji sadrži po jedan suplement iz svake kategorije i Astaxanthin}
+\label{fig:astaxanthin}
+\end{figure}
+
+\newpage
+
+Slično, ako odaberemo po jedan proizvod iz prve tri kategorije i proizvod koji nije Astaxanthin iz četvrte kategorije, prosečna cena paketa je AUD 71.7. Na Slici \ref{fig:wout_astaxanthin} prikazan je udeo suplementa u takvom paketu.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture} [scale=0.8, every node/.style={scale=0.8}]
+\pie[
+    color = {
+        yellow!90, 
+        green!40, 
+        blue!20, 
+        red!40,
+        orange!60},
+    text = legend,
+    rotate = 90
+]
+{
+14.80/Vitamini,
+    17.51/Minerali,
+    22.07/Specijaliteti,
+    22.45/Probiotici,
+    23.16/Biljke}
+ 
+\end{tikzpicture}
+\caption{Prosečni udeo cene suplementa (u procentima) u paketu koji sadrži po jedan suplement iz svake kategorije i ne sadrži Astaxanthin}
+\label{fig:wout_astaxanthin}
+\end{figure}
+
+Prosečna cena paketa je veća ako je Astaxanthin izabran. Takođe Astaxanthin je u proseku najskuplji suplement u posmatranom paketu. Pretpostavimo da svi ljudi koriste računar ili mobilni telefon i da će oni odgovoriti pozitivno na postavljeno pitanje. Onda, bi svi ljudi imali Astaxanthin u spisku osnovnih preporučenih proizvoda, u opt-in stilu. Takav vid digitalnog gurkanja se ne preporučuje etičkim dizajnerskim principima.
+
+\section{Posledice masovne izloženosti sistemima preporuka}
+\label{sec:posledice_masovne_izloženosti 1}
+
+
+Internet koristi 5.18 milijardi ljudi(64.6\% populacije) u proseku 6.5 sati dnevno, dok je prosečno vreme koje korisnik dnevno provede na društvenim mrežama 2.4 sata. Sve starosne grupe dele isti glavni razlog korišćenja interneta - pronalaženje informacija. U zavisnosti od starosne grupe 30\%-37\% korisnika koristi društvene mreže najpre za čitanje vesti \cite{Kemp_2023}.
+
+Imajući u vidu ovu statistiku, možemo da zaključimo da internet i društvene mreže, zajedno sa svojim sistemima preporuke, zasigurno imaju uticaj na populaciju. Posledice ovog uticaja i ispravnosti informacija kojima korisnici imaju pristup se ogledaju u mentalnom zdravlju ljudi, politici i sistemskoj agresiji \cite{Ledger_of_Harms}.
+
+
+\subsection{Posledice po ispravnost informacija}
+\label{subsec: posledice_informacije 1}
+
+
+\subsubsection{Problem neispravnosti informacija}
+\label{subsec: problem_informacije 1}
+
+
+Sistemi preporuke prikazuju korisniku sadržaj za koji je predviđeno da ima najveću verovatnoću da mu privuče pažnju na osnovu raznih metrika i modela. U sadržaju koji će se potencijalno prikazati korisniku se nalaze i dezinformacije - netačne informacije koje imaju zadatak da zavaraju onog ko na njih naiđe, i lažne vesti - dezinformacije koje se predstavljaju kao cela ili deo vesti.
+
+Problem nastaje kada veliki broj ljudi dođe u kontakt sa istim dezinformacijama i lažnim vestima i tada dolazi do loše informisanosti javnog mnjenja i samim tim nemogućnosti da se reaguje adekvatno u situacijama poput klimatskih promena ili epidemije. Uticaj sistema preporuke na ovaj problem je veliki zato što se preko njih lažne vesti šire šest puta brže nego istinite \cite{Vosoughi_Roy_Aral_2018}. Ovo se dešava zbog česte šokantnosti informacija i senzacionalnih naslova koji prate lažne vesti i samim tim veće verovatnoće da će korisnik biti zainteresovan za iste.
+Lažne vesti češće prouzrokuju bes kod korisnika nego istinite \cite{Lu_2020} čime se još više ubrzava širenje dezinformacija \cite{Vosoughi_Roy_Aral_2018}.
+
+Pored dezinformacija i lažnih vesti, u određenim grupama često se šire i teorije zavere koje smanjuju verovanja ljudi u naučne činjenice i imaju loš uticaj na socijalno ponašanje \cite{van_der_Linden_2015}.
+
+Postojanje botova čiji je cilj širenje dezinformacija, lažnih vesti i teorija zavera dodatno otežava rešavanje ovog problema. 45\% objava na Twitter-u o Covid-19 virusu je bilo postavljeno od strane botova \cite{NPR_2020} i automatska i ručna provera činjenica (eng.~{\em fact checking}) nije u mogućnosti da se nosi sa time \cite{Jon-Patrick_Allem}.
+
+O posledicama po ispravnost informacija govori da je po istraživanju sa Oxford-a u 22 miliona ispitanih objava više bilo dezinformacija, lažnih vesti i teorija zavere nego tačnih informacija \cite{Howard}.
+
+
+\subsubsection{Potencijalno dobar uticaj}
+\label{subsec:potencijal_informacije 2}
+
+
+Ako bi velika moć za širenje objava, informacija i vesti sistema za preporuku mogla biti iskorišćena za propagiranje činjenica, otkrića i bitnih događaja uticaj na populaciju bi takođe bio veliki, ovaj put u pozitivnom smislu. Sistemi za preporuku bi imali udela u obrazovanju stanovništva i širenju bitnih i najvažnije istinitih informacija.
+
+Da bi došlo do toga potrebno je rešiti problem dezinformacija, koji današnja provera činjenica (eng.~{\em fact checking}) većinski nije u stanju da reši. Jedan od predloga za rešavanje ovog problema je uključivanje uspešnih strategija za upravljanje dezinformacijama iz istraživanja socijalnih nauka u modele sistema preporuka  \cite{fernandez2020recommender}.
+
+
+\subsection{Posledice po demokratsko funkcionisanje}
+\label{subsec: posledice_demokratija 2}
+
+
+\subsubsection{Problem političke segregacije i pada demokratije}
+\label{subsec: problem_demokratija 1}
+
+
+Način na koji sistemi preporuke mogu da utiču na politiku je širenjem propagande. Nadovezujući se na prethodni pasus, propaganda je informacija(često dezinformacija) čiji je cilj da utiče i izmanipuliše javnost radi ostvarenja nekog političkog cilja.
+
+Problem opet nastaje kada veliki broj ljudi dođe u kontakt sa propagandom jer se u tom slučaju fokus javnog mnjenja okreće ka često lošem pravcu za društvo. Pored propagande, problem uvećavaju i polarizujući sadržaji koji su namenjeni da stvore razdor i segregaciju u narodu \cite{Ledger_of_Harms}. Pošto su sistemi preporuke društvenih mreža konfigurisani tako da ostvare maksimalnu interakciju sa korisnikom, a sadržaj sa političkim protivnicima ima 67\% više šanse da bude podeljen \cite{Rathje_Van_Bavel_van_der_Linden_2021}, opet se dolazi u situaciju da sistemi preporuka utiču na ovaj problem širenjem polarizujućeg političkog sadržaja.
+
+Za osetljivost ljudi na političke vesti govori podatak da preko 20\% neodlučenih glasača menja svoje mišljenje na osnovu redosleda rezultata na pretraživaču \cite{Epstein_Robertson_2015} i da lažna politička vest može da promeni sećanje ljudi tako da su ubeđeni da se ona zapravo desila \cite{Murphy_Loftus_Grady_Levine_Greene_2019}.
+
+Pored lakog i brzog širenja ovakvih vesti, problem uvećava sama količina istih i njihova dugotrajnost. Par nedelja pred napad na Kapitol, 5 miliona političkih dezinformacija je objavljeno na Facebook-u \cite{Mac_Silverman_2020}. Takodje, 3 meseca pred izbore u Sjedinjenim Američkim Dražavama 2016. godine, objavljeno je više lažnih političkih naslova, tri puta više ljudi ih je pročitalo i čak i posle dve godine takve lažne vesti su bile u prvih 10 priča na Twitter-u \cite{Silverman_2016} \cite{Knight_Foundation}.
+
+Esencijalni preduslov za demokratiju čini autonomnost individualaca \cite{Genovesi_Kaesling_Robbins_2023} koja se gubi zbog širenja istih, često objavljivanih i deljenih lažnih, i polarizujućih vesti i propagande. Kao direktna posledica formira se mišljenje da su razlike u stavovima sa političkim protivnicima veće nego što zapravo jesu, što vremenom dovodi do segregacije društva. Kao indirektna posledica, demokratija postaje disfunkcionalna, jer je teže rešavati probleme zajedno sa neistomišljenicima i političkim protivnicima sa kojima se nema ništa zajedničko \cite{Center_for_Humane_Technology}.
+
+Od početka eksplozije društvenih mreža 2010. godine broj demokratija u svetu je u konstantnom padu, a ekstremistički stavovi političara su u porastu \cite{Center_for_Humane_Technology}.
+
+
+\subsubsection{Potencijalno dobar uticaj}
+\label{subsec: potencijal_demokratija 2}
+
+
+Manipulacija stanovništva od strane legitimno demokratski izabrane vlasti može se u nekim situacijama smatrati opravdanom. Obično su to situacije gde se narodom manipuliše zarad dobra stanovništva ili države \cite{Genovesi_Kaesling_Robbins_2023}. U ovakvim slučajevima sistemi preporuke bi olakšali širenje poruke i dopiranje do velikog dela društva, međutim uvek postoji pitanje da li je dobro da vlast ima ovakvo oruđe u svojim rukama.
+
+Zloupotreba sistema preporuka Facebook-a se desila 2017. godine od strane vojske Mjanmara. Započeta je propagandna kampanja protiv manjine u Mjanmaru koja je dovela do genocida i dolazak generala vojske Mjanmara na vlast \cite{Reports_2018}.
+
+\section{Diskriminacija u sistemima preporuka}
+
+Glavni cilj sistema preporuka je da pruži personalizovane sugestije svojim korisnicima. Medjutim, zbog odredjenih nepravilnosti prilikom davanja takvih sugestija, otvara se jedno novo etičko pitanje u ovoj oblasti. Pojava koji se javlja naziva se diskriminacija u sistemima preporuka, i obuhvata niz problema koji proizlaze iz pristrasnih algoritama, koji često mogu za ishod da imaju nejednakost u pristupu informacijama i resursima ~\cite{fairness}. Razumevanje i rešavanje ovog problema jeste jedan od ključnih koraka ka razvijanju pravičnih i nediskriminišućih personalizacija. 
+\subsection{Primeri diskriminacije}
+Dok su neke razlike u preporukama poprilično bezazlene za čoveka, na primer drugačije sortirane liste muzike, filmova ili proizvoda na nekom sajtu, postoje i neke preporuke koje diskriminišu na način da mogu da utiču u mnogome na život pojedinca. Na primer, algoritmi zaduženi za davanje preporuka kurseva i obrazovnih resursa mogu da diskriminišu odredjene etničke grupe, čime ograničavaju pristup resursima jednoj grupi ljudi, a nekoj drugoj ne. Diskriminacija sistema preporuke u oblasti poslovanja i zapošljavanja se može videti u nekim situacijama kada recimo na platformi koja treba da predloži pojedince za odredjene pozicije, sistem favorizuje osobu koja možda ima gore kvalifikacije za tu poziciju od neke druge osobe~\cite{druga}. Naime, prilikom rangiranja u ovakvim slučajevima, često je krucijalno da budete visoko rangirani da biste bili razmatrani, tako da algoritam koji u sebi ima naznake diskriminacije može direktno uticati na poslovnu sudbinu osobe. Takodje, u situaciji kada algoritam ima ulogu u odlučivanju davanja kredita nekoj osobi, može doći do diskriminacije tako što će algoritam favorizovati odredjeni profil osobe, dok će neke druge grupe ljudi ostati bez takve finansijske prilike. Slične primere možemo razmatrati i prilikom preporuka vesti, preporuka različitih kulturnih dogadja, nepravedno profilisanje u oblasti zdravstvene nege, pristrasnost u preporukama finansijskih proizvoda itd.
+
+
+\subsection{Da li algoritam namerno vrši diskriminacije?}
+Odgovor na ovo pitanje nije jednoznačno. Postoje različita mišljenja i namere, kao i različite regulative po tom pitanju. 
+Važno je razumeti obe strane priče.
+
+Sa jedne strane, treba znati da su sistemi preporuke algoritmi koji rade na osnovu podataka, pa tako odražavaju pristrasnosti koje proizilaze iz podataka korišćenih u njihovom treniranju. U tom slučaju ta pristrasnost ka odredjenim korisnicima pri davanju preporuka je rezultat internih nejednakosti prisutnih u podacima koje algoritam koristi. Medjutim, i kada je ovo razlog, algoritmi svakako mogu reprodukovati i pojačati društvenu diskriminaciju. Odsustvo zlonamernosti u sistemima preporuka ne isključuje njihov potencijalni doprinos rasizmu.
+
+Sa druge strane, naravno da se može govoriti o eksplicitnim namerama da algoritam radi na odredjeni način da bi davao doprinos pojedincima.
+Možemo posmatrati na primer neovlašćeni pristup preko HTTP saobraćaja tako što se željeni preporučeni sadržaj 'ubrizgava' u sadržaj veb strane koju korisnik posmatra. To će kasnije naterati korisnika da poseti ciljani proizvod koji je preporučen, i na taj način će se odigravati manipulacija sistema preporuka kroz sesije pregledača~\cite{treca}.
+
+
+\section{Rešenja koja vode boljoj etici}
+	        
+Primena algoritama sa transparentnim načinom funkcionisanja će pružiti korisnicima mogućnost da razumeju proces donošenja preporuka.
+Takodje uz to,  edukacije korisnika o tome kako algoritmi funkcionišu i kako utiču na njihove preporuke može povećati svest o važnosti etičkog korišćenja ovakvih sistema.
+
+Raznovrsne personalizovane opcije podešavanja privatnosti treba da pruže korisnicima veću kontrolu nad svojim podacima, tako da se postigne bolja ravnoteža izmedju zaštite privatnosti i pesonalizacije.
+
+Veća edukacija programera na temu etičkih smernica koje treba da koriste prilikom implementacije algoritama preporuka je takodje jedna od stavki koja bi doprinela razvoju fer algoritama.
+
+
+
+Iako se korisnicima već nudi opcija davanja povratne informacije o preporukama, taj vid povratne infomacije može doprineti poboljšanju sistema, tako da bi trebalo podstaći korisnike na što češće davanje povratne informacije.
+Veća saradnja između tehnoloških kompanija, stručnjaka za etiku i relevantnih regulatornih tela može dovesti do uspostavljanja boljih standarda i smernica koji promovišu odgovorno korišćenje sistema preporuka.
+
+Ako se fokusiramo na konkretne implementacione detalje algoritama mašinskog učenja, poboljšanja se mogu gledati kroz tri ključna dela: 'pre-proccesing', 'In-processing' i 'Post-processing'. U delu pretprocesiranja treba rešiti problem pristrasnost podataka pre same faze učenja, omogućavajući treniranje modela na "ispravljenim" podacima, ali uz potencijalni gubitak tačnosti. Metode u 'In-processing' treba da teže balansiranju tačnosti i pravičnosti, modifikujući sam proces učenja, često integrišući metrike pravičnosti u ciljnu funkciju. Sa druge strane, metode post procesiranja primenjuju transformacije na izlaz modela kako bi smanjile nepravičnost, tretirajući osnovni model kao crnu kutiju.~\cite{fairness}  Svaka od ovih metoda ima svoje prednosti i nedostatke, a izbor metoda nije samo tehničko pitanje već zahteva razmatranje socijalnih i pravnih konteksta. 
+
+
+\section{Zaključak}
+\label{sec:zakljucak}
+
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{bibliografija} 
+\bibliographystyle{plain}
+
+\appendix
+\section{Dodatak}
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+
+
+\end{document}
