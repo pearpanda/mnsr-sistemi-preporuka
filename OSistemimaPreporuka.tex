@@ -1,0 +1,128 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[english,serbian]{babel}
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{listings}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\begin{document}
+
+% \title{Sistemi preporuka i uticaj na formiranje stavova\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
+
+% \author{Prvi autor, drugi autor, treći autor, četvrti autor\\ kontakt email prvog, drugog, trećeg, četvrtog autora}
+
+%\date{9.~april 2015.}
+
+% \maketitle
+
+% \abstract{
+% U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da koristite!) kao i par tehničkih pomoćnih uputstava. Pročitajte tekst pažljivo jer on sadrži i važne informacije vezane za zahteve obima i karakteristika seminarskog rada.}
+
+% \tableofcontents
+
+% \newpage
+
+% \section{Uvod}
+% \label{sec:uvod}
+
+\section{Sistemi preporuka}
+\label{sec:sistemi_preporuka}
+
+\subsection{Motivacija}
+\label{subsec:motivacija}
+
+U današnje vreme, zbog ubrzanog razvoja interneta i veba, kompanije neretko imaju potrebu da barataju velikim količinama podataka. Na primer, veb prodavnica ``Amazon'' nudi kupcima čak 353 miliona predmeta \cite{noauthor_57_2022}, a ``Google'' pretraživač indeksira i pretražuje stotine milijardi veb strana \cite{noauthor_organizing_nodate}. Obe firme treba da na neki smislen i efikasan način svojim korisnicima daju pregled sadržaja sa kojim rade, a posebno sadržaja koji su interesantni svakom korisniku pojedinačno. Oni rade intenzivno na razvijanju novih, boljih tehnika pretrage i preporučivanja sadržaja kako bi poboljšali iskustvo korisnika i smanjili troškove.
+
+Pravljenje dobrih preporuka je direktno vezano i u nekoliko biznis modela. Kompanije kao što su ``Google'' i ``Meta'', koje deo prihoda ostvaruju na osnovu reklama, pružaju mnogo funkcionalnosti i izuzetnu uslugu da bi korisnici duže koristili njihove servise i samim tim bili izloženi većem broju reklama. Dodatno, praćenjem korišćenja svojih servisa i analizom podataka o korišćenju, ove kompanije dobijaju uvid u interesovanja korisnika, što koriste ne samo za prilagođavanje sadržaja korisniku, već i reklama. Na sličan način, prodavnice kao što je ``Amazon'' pomažu kupcima da lakše pronađu proizvode koji ih interesuju, čime smanjuju napor uložen u kupovinu i poboljšavaju uslugu, ali takođe predlažu dodatne proizvode, što povećava njihovu zaradu.
+
+\subsection{Sistemi preporuka i nauka}
+\label{subsec:nauka}
+
+Razvoj veba i povećanje količine podataka za obradu direktno je motivisalo razvoj više povezanih naučnih disciplina koje obrađuju slične probleme, pri čemu su dve koje se izdvajaju \textbf{pronalaženje informacija} (eng.~{\em information retrieval}) i \textbf{sistemi preporuka} (eng.~{\em recommender systems, recommendation systems}). U oba slučaja, cilj je pomoći korisniku da dobije željene rezultate.
+
+\textbf{Sistemi preporuka} mogu se opisati kao kompleksni softverski sistemi čija je glavna uloga da svojim \textbf{korisnicima} (eng.~{\em users}) daju personalizovan pregled \textbf{predmeta} (eng.~{\em items}) registrovanih u sistemu za koje sistem proceni da im mogu biti interesantni.
+
+Tehnike pronalaženja informacija su izrazito prisutne u implementaciji raznih vrsta pretraživača, pri čemu korisnik parametrima pretrage opisuje željene rezultate. U slučaju modernih sistema preporuka, međutim, nije neophodno da korisnik pravi upite, već sistem može da pretpostavi šta je relevantno korisniku, i pruži mu personalizovan rezultat. Ipak, popularni pretraživači integrišu tehnike sistema preporuka za pružanje personalizovanih pretraga, gde na rezultate upita korisnika utiču ne samo podaci navedeni u upitu, već i kontekst koji čine interesovanja ili lokacija korisnika \cite{aggarwal_recommender_2016}.
+
+\subsection{Stari sistemi preporuka}
+\label{subsec:stari_sistemi_preporuka}
+
+U osnovi starih sistema preporuka stoji sama ideja \textbf{preporuke} koju smo dobili od prijatelja, pročitali u časopisu ili na internetu, koja nam je potrebna da donesemo odluku kada nemamo dovoljno znanja o svim opcijama. Stari sistemi preporuka su zamišljeni kao unapređenje prirodnog procesa gde bi korisnici delili svoje utiske, koje bi sistem sakupljao, agregirao i učinio dostupnim ostalim korisnicima \cite{resnick_recommender_1997}. Za prvi sistem preporuka smatra se ``Tapestry'' \cite{goldberg_using_1992}, napravljen 1992. godine. On je predstavljao proširenje koncepta filtriranja elektronske pošte, sa ciljem identifikovanja interesantnih i relevantnih poruka u skupu svih poruka u sandučetu.
+
+\subsubsection{Sistem ``Tapestry''}
+\label{subsubsec:tapestry}
+
+Većina mejl sistema podržava definisanje filtera nad sadržajem mejlova, poput toga kome je sve upućen i da li su neke ključne reči pomenute u naslovu ili sadržaju. Razvijaoci sistema ``Tapestry`` uočili su da filteri nad sadržajem nisu jedini pristup problemu traženja interesantnih poruka. Analizirali su aktivnosti rukovodioca mejl grupa, i zaključili su da rukovodioci zapravo vrše ulogu filtriranja sadržaja poruka po svojim interesovanjima. Proširili su sistem tako da korisnici mogu da reaguju na poruke, čime daju svoju preporuku, i dozvolili su korisnicima da definišu posebne filtere na osnovu opšte popularnosti ili reakcija specifičnih ljudi. Reakcije se čuvaju u sistemu i objavljuju ostalim korisnicima, tako da sistem ``Tapestry'' zaista predstavlja jedan stari sistem preporuka.
+
+\subsection{Koncepti sistema preporuka}
+\label{subsec:koncepti_sistema_preporuka}
+
+\subsubsection{Upotrebljivost}
+\label{subsubsec:upotrebljivost}
+
+U poređenju sa početnim sistemima, noviji sistemi pomeraju fokus sa koncepta preporuka korisnika na sam preporučen predmet. Koncept preporuke se apstrahuje u meru koja se zove upotrebljivost (eng.~{\em utility}) ili ocena (eng.~{\em rating}) \cite{burke_recommender_2011}. Unapređivanjem korisničkih interfejsa, korisnicima postaje dosta lakše da ocenjuju sadržaj, obično u veoma malom broju koraka \cite{aggarwal_recommender_2016}. Uprkos tome, sistemi preporuka takođe počinju da prate, sakupljaju i analiziraju podatke o interakcijama korisnika sa različitim predmetima. Obrađeni podaci i eksplicitne ocene korisnika sistem koristi u formiranju ocene upotrebljivosti predmeta za tog korisnika.
+
+\subsubsection{Pristupi u sistemima preporuka}
+\label{subsubsec:pristupi_sistema_preporuka}
+
+U osnovi uspešnosti tehnika koje se koriste u sistemima preporuka leži opažanje da postoje obrasci u ocenama predmetima, kako između različitih predmeta, tako i između različitih ljudi \cite{aggarwal_recommender_2016}. U primeru mejl sistema ``Tapestry'' vidimo početke dve glavna pristupa koja koriste ove obrasce i koja se koriste danas u sistemima preporuka: \textbf{filtriranje po sadržaju} (eng.~{\em content-based filtering}) i \textbf{zajedničko filtriranje} (eng.~{\em collaborative filtering}).
+
+Tehnike zasnovane na sadržaju obuhvataju određivanje i analiziranje raznih karakteristika sadržaja predmeta koje je neki korisnik prethodno razmatrao i kako te karakteristike utiču na ocenu korisnika. Dobijeno znanje se onda koristi u preporuci novih predmeta. Na primer, ukoliko neko često sluša određeni žanr muzike, veća je verovatnoća da će mu se svideti neka nova pesma upravo iz tog žanra.
+
+Tehnike zajedničkog filtriranja koriste informacije o aktivnosti više korisnika u određivanju preporuka. Jednostavni pristupi zajedničkog filtriranja obično su zasnovani na susedstvima, odnosno traženju sličnosti u ocenama između više korisnika ili više predmeta. Ukoliko dve osobe, na primer,  imaju slične utiske za nekoliko predmeta, pretpostavlja se da će imati slične utiske i za neki novi predmet. Alternativno, mogu se koristiti razne tehnike istraživanja podataka ili mašinskog učenja u definisanju modela na osnovu koga će se vršiti preporuke \cite{aggarwal_recommender_2016}. U ovom slučaju, model se može razvijati tako da razmatra i određene parametre koji bi kontrolisali koje preporuke model generiše.
+
+\subsubsection{Uspešnost sistema preporuka}
+\label{subsubsec:uspesnost_sistema_preporuka}
+
+Postoje mnogi aspekti sistema preporuka koji čine sistem uspešnim. Dobar sistem preporuka neće nužno razmatrati samo procenjenu ocenu predmeta za korisnika pri formiranju preporuka. Na primer, korisnik koji je istraživao i kupio mobilni telefon ne mora biti ljubitelj mobilnih telefona, već je bio u potrazi za novim telefonom. Nakon kupovine, preporučivanje telefona tom korisniku je verovatno suvišno. U drugim kontekstima, na primer u muzici, preporučivanje istog žanra, ili čak iste pesme više puta može biti poželjno.
+
+\subsection{Rizici sistema preporuka}
+\label{subsec:rizici_sistema_preporuka}
+
+\subsubsection{Reprezentativnost ocena}
+\label{subsubsec:reprezentativnost_ocena}
+
+Računanje upotrebljivosti na osnovu aktivnosti korisnika otvara put ka razvijanju boljih sistema preporuka. Iako sada korisnici imaju mogućnost da veoma jednostavno daju neki vid ocene za predmete, analiziranje isključivo tih ocena nije uvek reprezentativno. Jedan uzrok je pristrasnost uzorka, jer pravi skup korisnika i skup ljudi koji ostavljaju ocenu ne moraju da se poklapaju \cite{panzeri_sampling_2008}, bilo zato što korisnici ne žele da daju ocene, ili zbog lažnih ocena. Sakupljanjem podataka za sve korisnike svi učestvuju u formiranju procene upotrebljivosti, što dovodi do boljih preporuka i rezultata pretrage.
+
+\subsubsection{Opasnosti po privatnost}
+\label{subsubsec:opasnosti_po_privatnost}
+
+Međutim, prikupljanje podataka prirodno ističe rizike po privatnost korisnika. Radi boljeg efekta reklama, postaje bitnije formirati profile korisnika. Profili mogu sadržati, na primer, intersovanja, starost, pol, politička opredeljenja, mesto stanovanja, bogatstvo (eng.~{\em net worth}). Istraživanja pokazuju kako praćenje aktivnosti nije vezano samo za pojedinačne sajtove, već preko reklama i usluga analize saobraćaja povezuje veliki broj naizgled nezavisnih sajtova \cite{chaabane_big_2012}, pri čemu način upotrebe prikupljenih podataka često nije jasno definisan.
+
+\subsubsection{Sukobi interesa}
+\label{subsubsec:sukobi_interesa}
+
+Dodatno, uvek postoji sukob interesa između različitih strana u definisanju koliko je koja preporuka korisna. U slučaju veb prodavnica konflikt je očigledan: prodavcu se možda više isplati da preporuči predmet gde je zarada prodavca veća, umesto da preporuči predmet koji je najkorisniji kupcu \cite{burke_recommender_2011}.
+
+U slučaju reklama, proizvodi koji se preporučuju mogu biti nekvalitetni ili tvrdnje prikazane u reklami lažne. Neke reklame, iako profitabilne za kompanije, mogu biti veoma štetne za posebne korisnike. Na primer, reklame za kockarnice mogu katastrofalno uticati na zavisnike od kockanja.
+
+\subsection{Upotreba sistema preporuka}
+\label{subsec:upotreba_sistema_preporuka}
+
+U današnje vreme, sistemi preporuka su opšteprisutni. ``Netflix'' ih koristi za preporuke filmova i serija, ``Amazon'' da bi predložio predmete koje možete kupiti, ``Facebook'', ``Twitter'' i ``LinkedIn'' da vam predlože interesantne objave sa kojima možda nemate direktnu vezu ili ljude sa kojima možete da se povežete, ``Google'' prilagođava preporuke za pretragu i same rezultate pretrage u zavisnosti od korisnika, a ``YouTube'', ``Instagram'' i ``TikTok'' prikazuju veliki broj slika i video sadržaja, pri čemu su neki organizovani u neprekidne personalizovane nizove koje generiše sistem.
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{OSistemimaPreporuka} 
+\bibliographystyle{plain}
+
+\end{document}
+
+% Problem formiranja preporuka se obično formuliše na sledeći način: ukoliko je dat skup korisnika $C$ i skup predmeta $S$, definiše se funkcija upotrebljivosti $u : C \times S \to \mathbb{R}$. Zadatak sistema preporuka je da za svakog korisnika $c \in C$ odredi $k$ predmeta $s \in S$ tako da im je upotrebljivost najveća \cite{burke_recommender_2011}.
+
+% Ako je $m$ broj korisnika i $n$ broj predmeta, upotrebljivost možemo predstaviti u obliku matrice $R$ formata $(m, n)$ koja se zove matrica ocena (eng.~{\em rating matrix}). Matrica $R$ je retka matrica u kojoj su zapisane poznate vrednosti upotrebljivosti koje je sistem izračunao na osnovu aktivnosti korisnika, dok ostale vrednosti sistem procenjuje na osnovu poznatih. Ovo posmatranje problema se naziva problem popunjavanja matrice (eng.~{\em matrix completion}).

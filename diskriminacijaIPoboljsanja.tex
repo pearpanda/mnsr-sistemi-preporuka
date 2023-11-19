@@ -1,0 +1,75 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[english,serbian]{babel}
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{listings}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\title{Diskriminacija i resenja koja vode boljoj etici}
+
+
+\begin{document}
+	\maketitle
+	
+	\section{Diskriminacija u sistemima preporuka}
+	
+	   Glavni cilj sistema preporuka je da pruži personalizovane sugestije svojim korisnicima. Medjutim, zbog odredjenih nepravilnosti prilikom davanja takvih sugestija, otvara se jedno novo etičko pitanje u ovoj oblasti. Pojava koji se javlja naziva se diskriminacija u sistemima preporuka, i obuhvata niz problema koji proizlaze iz pristrasnih algoritama, koji često mogu za ishod da imaju nejednakost u pristupu informacijama i resursima ~\cite{fairness}. Razumevanje i rešavanje ovog problema jeste jedan od ključnih koraka ka razvijanju pravičnih i nediskriminišućih personalizacija. 
+     \subsection{Primeri diskriminacije}
+             Dok su neke razlike u preporukama poprilično bezazlene za čoveka, na primer drugačije sortirane liste muzike, filmova ili proizvoda na nekom sajtu, postoje i neke preporuke koje diskriminišu na način da mogu da utiču u mnogome na život pojedinca. Na primer, algoritmi zaduženi za davanje preporuka kurseva i obrazovnih resursa mogu da diskriminišu odredjene etničke grupe, čime ograničavaju pristup resursima jednoj grupi ljudi, a nekoj drugoj ne. Diskriminacija sistema preporuke u oblasti poslovanja i zapošljavanja se može videti u nekim situacijama kada recimo na platformi koja treba da predloži pojedince za odredjene pozicije, sistem favorizuje osobu koja možda ima gore kvalifikacije za tu poziciju od neke druge osobe~\cite{druga}. Naime, prilikom rangiranja u ovakvim slučajevima, često je krucijalno da budete visoko rangirani da biste bili razmatrani, tako da algoritam koji u sebi ima naznake diskriminacije može direktno uticati na poslovnu sudbinu osobe. Takodje, u situaciji kada algoritam ima ulogu u odlučivanju davanja kredita nekoj osobi, može doći do diskriminacije tako što će algoritam favorizovati odredjeni profil osobe, dok će neke druge grupe ljudi ostati bez takve finansijske prilike. Slične primere možemo razmatrati i prilikom preporuka vesti, preporuka različitih kulturnih dogadja, nepravedno profilisanje u oblasti zdravstvene nege, pristrasnost u preporukama finansijskih proizvoda itd.
+
+
+        \subsection{Da li algoritam namerno vrši diskriminacije?}
+            Odgovor na ovo pitanje nije jednoznačno. Postoje različita mišljenja i namere, kao i različite regulative po tom pitanju. 
+                Važno je razumeti obe strane priče.
+                
+                Sa jedne strane, treba znati da su sistemi preporuke algoritmi koji rade na osnovu podataka, pa tako odražavaju pristrasnosti koje proizilaze iz podataka korišćenih u njihovom treniranju. U tom slučaju ta pristrasnost ka odredjenim korisnicima pri davanju preporuka je rezultat internih nejednakosti prisutnih u podacima koje algoritam koristi. Medjutim, i kada je ovo razlog, algoritmi svakako mogu reprodukovati i pojačati društvenu diskriminaciju. Odsustvo zlonamernosti u sistemima preporuka ne isključuje njihov potencijalni doprinos rasizmu.
+
+                Sa druge strane, naravno da se može govoriti o eksplicitnim namerama da algoritam radi na odredjeni način da bi davao doprinos pojedincima.
+                Možemo posmatrati na primer neovlašćeni pristup preko HTTP saobraćaja tako što se željeni preporučeni sadržaj 'ubrizgava' u sadržaj veb strane koju korisnik posmatra. To će kasnije naterati korisnika da poseti ciljani proizvod koji je preporučen, i na taj način će se odigravati manipulacija sistema preporuka kroz sesije pregledača~\cite{treca}.
+                
+
+            \section{Rešenja koja vode boljoj etici}
+	        
+Primena algoritama sa transparentnim načinom funkcionisanja će pružiti korisnicima mogućnost da razumeju proces donošenja preporuka.
+Takodje uz to,  edukacije korisnika o tome kako algoritmi funkcionišu i kako utiču na njihove preporuke može povećati svest o važnosti etičkog korišćenja ovakvih sistema.
+
+Raznovrsne personalizovane opcije podešavanja privatnosti treba da pruže korisnicima veću kontrolu nad svojim podacima, tako da se postigne bolja ravnoteža izmedju zaštite privatnosti i pesonalizacije.
+
+Veća edukacija programera na temu etičkih smernica koje treba da koriste prilikom implementacije algoritama preporuka je takodje jedna od stavki koja bi doprinela razvoju fer algoritama.
+
+
+
+Iako se korisnicima već nudi opcija davanja povratne informacije o preporukama, taj vid povratne infomacije može doprineti poboljšanju sistema, tako da bi trebalo podstaći korisnike na što češće davanje povratne informacije.
+     Veća saradnja između tehnoloških kompanija, stručnjaka za etiku i relevantnih regulatornih tela može dovesti do uspostavljanja boljih standarda i smernica koji promovišu odgovorno korišćenje sistema preporuka.
+
+        Ako se fokusiramo na konkretne implementacione detalje algoritama mašinskog učenja, poboljšanja se mogu gledati kroz tri ključna dela: 'pre-proccesing', 'In-processing' i 'Post-processing'. U delu pretprocesiranja treba rešiti problem pristrasnost podataka pre same faze učenja, omogućavajući treniranje modela na "ispravljenim" podacima, ali uz potencijalni gubitak tačnosti. Metode u 'In-processing' treba da teže balansiranju tačnosti i pravičnosti, modifikujući sam proces učenja, često integrišući metrike pravičnosti u ciljnu funkciju. Sa druge strane, metode post procesiranja primenjuju transformacije na izlaz modela kako bi smanjile nepravičnost, tretirajući osnovni model kao crnu kutiju.~\cite{fairness}  Svaka od ovih metoda ima svoje prednosti i nedostatke, a izbor metoda nije samo tehničko pitanje već zahteva razmatranje socijalnih i pravnih konteksta. 
+
+
+\newpage
+	\begin{thebibliography}{5}
+		\bibitem{fairness}
+		AFairness in Recommendation: Foundations, Methods and
+Applications. \url{https://arxiv.org/pdf/2205.13619.pdf}
+\bibitem{druga}
+		Recommender Systems: Legal and Ethical Issues \url{https://library.oapen.org/bitstream/handle/20.500.12657/75402/1/978-3-031-34804-4.pdf#page=18}
+
+ \bibitem{treca}
+		Understanding the Manipulation on Recommender
+Systems through Web Injection \url{https://shhaos.github.io/papers/tifs20-recsys_mnpl.pdf}
+	\end{thebibliography}
+	
+\end{document}

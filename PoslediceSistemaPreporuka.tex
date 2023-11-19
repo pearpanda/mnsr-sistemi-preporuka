@@ -1,0 +1,137 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+
+\usepackage[english,serbian]{babel}
+%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{listings}
+
+%\newtheorem{primer}{Пример}[section] %ćirilični primer
+\newtheorem{primer}{Primer}[section]
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1000,                % start line enumeration with line 1000
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin{document}
+
+
+\section{Posledice masovne izloženosti sistemima preporuka}
+\label{sec:posledice_masovne_izloženosti 1}
+
+
+Internet koristi 5.18 milijardi ljudi(64.6\% populacije) u proseku 6.5 sati dnevno, dok je prosečno vreme koje korisnik dnevno provede na društvenim mrežama 2.4 sata. Sve starosne grupe dele isti glavni razlog korišćenja interneta - pronalaženje informacija. U zavisnosti od starosne grupe 30\%-37\% korisnika koristi društvene mreže najpre za čitanje vesti \cite{Kemp_2023}.
+
+Imajući u vidu ovu statistiku, možemo da zaključimo da internet i društvene mreže, zajedno sa svojim sistemima preporuke, zasigurno imaju uticaj na populaciju. Posledice ovog uticaja i ispravnosti informacija kojima korisnici imaju pristup se ogledaju u mentalnom zdravlju ljudi, politici i sistemskoj agresiji \cite{Ledger_of_Harms}.
+
+
+\subsection{Posledice po ispravnost informacija}
+\label{subsec: posledice_informacije 1}
+
+
+\subsubsection{Problem neispravnosti informacija}
+\label{subsec: problem_informacije 1}
+
+
+Sistemi preporuke prikazuju korisniku sadržaj za koji je predviđeno da ima najveću verovatnoću da mu privuče pažnju na osnovu raznih metrika i modela. U sadržaju koji će se potencijalno prikazati korisniku se nalaze i dezinformacije - netačne informacije koje imaju zadatak da zavaraju onog ko na njih naiđe, i lažne vesti - dezinformacije koje se predstavljaju kao cela ili deo vesti.
+
+Problem nastaje kada veliki broj ljudi dođe u kontakt sa istim dezinformacijama i lažnim vestima i tada dolazi do loše informisanosti javnog mnjenja i samim tim nemogućnosti da se reaguje adekvatno u situacijama poput klimatskih promena ili epidemije. Uticaj sistema preporuke na ovaj problem je veliki zato što se preko njih lažne vesti šire šest puta brže nego istinite \cite{Vosoughi_Roy_Aral_2018}. Ovo se dešava zbog česte šokantnosti informacija i senzacionalnih naslova koji prate lažne vesti i samim tim veće verovatnoće da će korisnik biti zainteresovan za iste.
+Lažne vesti češće prouzrokuju bes kod korisnika nego istinite \cite{Lu_2020} čime se još više ubrzava širenje dezinformacija \cite{Vosoughi_Roy_Aral_2018}.
+
+Pored dezinformacija i lažnih vesti, u određenim grupama često se šire i teorije zavere koje smanjuju verovanja ljudi u naučne činjenice i imaju loš uticaj na socijalno ponašanje \cite{van_der_Linden_2015}.
+
+Postojanje botova čiji je cilj širenje dezinformacija, lažnih vesti i teorija zavera dodatno otežava rešavanje ovog problema. 45\% objava na Twitter-u o Covid-19 virusu je bilo postavljeno od strane botova \cite{NPR_2020} i automatska i ručna provera činjenica (eng.~{\em fact checking}) nije u mogućnosti da se nosi sa time \cite{Jon-Patrick_Allem}.
+
+O posledicama po ispravnost informacija govori da je po istraživanju sa Oxford-a u 22 miliona ispitanih objava više bilo dezinformacija, lažnih vesti i teorija zavere nego tačnih informacija \cite{Howard}.
+
+
+\subsubsection{Potencijalno dobar uticaj}
+\label{subsec:potencijal_informacije 2}
+
+
+Ako bi velika moć za širenje objava, informacija i vesti sistema za preporuku mogla biti iskorišćena za propagiranje činjenica, otkrića i bitnih događaja uticaj na populaciju bi takođe bio veliki, ovaj put u pozitivnom smislu. Sistemi za preporuku bi imali udela u obrazovanju stanovništva i širenju bitnih i najvažnije istinitih informacija.
+
+Da bi došlo do toga potrebno je rešiti problem dezinformacija, koji današnja provera činjenica (eng.~{\em fact checking}) većinski nije u stanju da reši. Jedan od predloga za rešavanje ovog problema je uključivanje uspešnih strategija za upravljanje dezinformacijama iz istraživanja socijalnih nauka u modele sistema preporuka  \cite{fernandez2020recommender}.
+
+
+\subsection{Posledice po demokratsko funkcionisanje}
+\label{subsec: posledice_demokratija 2}
+
+
+\subsubsection{Problem političke segregacije i pada demokratije}
+\label{subsec: problem_demokratija 1}
+
+
+Način na koji sistemi preporuke mogu da utiču na politiku je širenjem propagande. Nadovezujući se na prethodni pasus, propaganda je informacija(često dezinformacija) čiji je cilj da utiče i izmanipuliše javnost radi ostvarenja nekog političkog cilja.
+
+Problem opet nastaje kada veliki broj ljudi dođe u kontakt sa propagandom jer se u tom slučaju fokus javnog mnjenja okreće ka često lošem pravcu za društvo. Pored propagande, problem uvećavaju i polarizujući sadržaji koji su namenjeni da stvore razdor i segregaciju u narodu \cite{Ledger_of_Harms}. Pošto su sistemi preporuke društvenih mreža konfigurisani tako da ostvare maksimalnu interakciju sa korisnikom, a sadržaj sa političkim protivnicima ima 67\% više šanse da bude podeljen \cite{Rathje_Van_Bavel_van_der_Linden_2021}, opet se dolazi u situaciju da sistemi preporuka utiču na ovaj problem širenjem polarizujućeg političkog sadržaja.
+
+Za osetljivost ljudi na političke vesti govori podatak da preko 20\% neodlučenih glasača menja svoje mišljenje na osnovu redosleda rezultata na pretraživaču \cite{Epstein_Robertson_2015} i da lažna politička vest može da promeni sećanje ljudi tako da su ubeđeni da se ona zapravo desila \cite{Murphy_Loftus_Grady_Levine_Greene_2019}.
+
+Pored lakog i brzog širenja ovakvih vesti, problem uvećava sama količina istih i njihova dugotrajnost. Par nedelja pred napad na Kapitol, 5 miliona političkih dezinformacija je objavljeno na Facebook-u \cite{Mac_Silverman_2020}. Takodje, 3 meseca pred izbore u Sjedinjenim Američkim Dražavama 2016. godine, objavljeno je više lažnih političkih naslova, tri puta više ljudi ih je pročitalo i čak i posle dve godine takve lažne vesti su bile u prvih 10 priča na Twitter-u \cite{Silverman_2016} \cite{Knight_Foundation}.
+
+Esencijalni preduslov za demokratiju čini autonomnost individualaca \cite{Genovesi_Kaesling_Robbins_2023} koja se gubi zbog širenja istih, često objavljivanih i deljenih lažnih, i polarizujućih vesti i propagande. Kao direktna posledica formira se mišljenje da su razlike u stavovima sa političkim protivnicima veće nego što zapravo jesu, što vremenom dovodi do segregacije društva. Kao indirektna posledica, demokratija postaje disfunkcionalna, jer je teže rešavati probleme zajedno sa neistomišljenicima i političkim protivnicima sa kojima se nema ništa zajedničko \cite{Center_for_Humane_Technology}.
+
+Od početka eksplozije društvenih mreža 2010. godine broj demokratija u svetu je u konstantnom padu, a ekstremistički stavovi političara su u porastu \cite{Center_for_Humane_Technology}.
+
+
+\subsubsection{Potencijalno dobar uticaj}
+\label{subsec: potencijal_demokratija 2}
+
+
+Manipulacija stanovništva od strane legitimno demokratski izabrane vlasti može se u nekim situacijama smatrati opravdanom. Obično su to situacije gde se narodom manipuliše zarad dobra stanovništva ili države \cite{Genovesi_Kaesling_Robbins_2023}. U ovakvim slučajevima sistemi preporuke bi olakšali širenje poruke i dopiranje do velikog dela društva, međutim uvek postoji pitanje da li je dobro da vlast ima ovakvo oruđe u svojim rukama.
+
+Zloupotreba sistema preporuka Facebook-a se desila 2017. godine od strane vojske Mjanmara. Započeta je propagandna kampanja protiv manjine u Mjanmaru koja je dovela do genocida i dolazak generala vojske Mjanmara na vlast \cite{Reports_2018}.
+
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{PoslediceSistemaPreporuka}
+\bibliographystyle{plain}
+\appendix
+
+
+\end{document}
+
+
+
+
+
